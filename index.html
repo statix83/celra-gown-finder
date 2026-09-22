@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gown Finder · CELRA.id</title>
+<meta name="description" content="Temukan gaun sewa CELRA.id yang pas untuk acara Anda: pilih acara, warna dan model, lalu tanyakan langsung lewat WhatsApp.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#FCFAF7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232E2622'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23C2A173'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FCFAF7; --blush:#F2E7E0; --card:#FFFFFF; --ink:#2E2622; --muted:#6F6259; --line:#E6DAD0;
+  --gold:#C2A173; --gold-deep:#7E5F37; --espresso:#5A3A32;
+  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:Jost, "Helvetica Neue", Arial, sans-serif;
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.6}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.top{position:sticky;top:0;z-index:20;background:rgba(252,250,247,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top,0px)) 16px 10px}
+.top-in{max-width:620px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;flex-direction:column;text-decoration:none;line-height:1.1}
+.brand b{font-family:var(--serif);font-weight:500;font-size:1.45rem;letter-spacing:.28em}
+.brand small{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);margin-top:3px}
+.top-link{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:12px 0 12px 8px}
+.top-link:hover{color:var(--ink)}
+main{max-width:620px;margin:0 auto;padding:18px 16px calc(120px + env(safe-area-inset-bottom,0px))}
+.intro{text-align:center;padding:14px 0 8px}
+.intro h1{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,7vw,2.6rem);line-height:1.1;margin:0;text-wrap:balance}
+.intro h1 em{font-style:italic}
+.intro p{margin:.6rem auto 0;max-width:34ch;color:var(--muted);font-size:.95rem}
+.log{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+.msg{display:flex;gap:10px;align-items:flex-end;animation:rise .35s ease both}
+.msg.bot{justify-content:flex-start}
+.msg.me{justify-content:flex-end}
+.av{flex:none;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--gold);display:grid;place-items:center;font-family:var(--serif);font-size:1.05rem;line-height:1}
+.bub{max-width:82%;padding:11px 15px;border-radius:var(--r) var(--r) var(--r) 5px;background:var(--card);border:1px solid var(--line);font-size:.97rem}
+.me .bub{background:var(--ink);color:var(--ivory);border-color:var(--ink);border-radius:var(--r) var(--r) 5px var(--r)}
+.me .edit{background:none;border:0;color:var(--gold-deep);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;padding:10px 2px;align-self:center}
+.me .edit:hover{color:var(--ink)}
+.typing .bub{display:flex;gap:5px;padding:15px 16px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 1s infinite ease-in-out}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 4px 40px;animation:rise .35s ease both}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 16px;border-radius:999px;border:1px solid #D8C8B8;background:var(--card);cursor:pointer;font-size:.9rem;font-weight:400;transition:background-color .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--gold);background:#FFFDF9}
+.chip:focus-visible,.btn:focus-visible,.edit:focus-visible,.top-link:focus-visible,.card-img:focus-visible,.lb button:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
+.chip .dot{width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(46,38,34,.15)}
+.chip .n{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.chip.soft{background:transparent;border-style:dashed}
+.chip.dark{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.chip.dark:hover{background:var(--espresso)}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:2px 0 4px 40px;animation:rise .35s ease both}
+.tile{display:flex;flex-direction:column;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;cursor:pointer;text-align:left;transition:border-color .2s,box-shadow .2s}
+.tile:hover{border-color:var(--gold);box-shadow:0 6px 18px rgba(46,38,34,.08)}
+.tile:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
+.tile img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;background:var(--blush)}
+.tile .tl{padding:9px 11px 11px;display:flex;flex-direction:column;gap:2px}
+.tile .tn{font-weight:500;font-size:.88rem;line-height:1.3;display:flex;justify-content:space-between;gap:6px}
+.tile .tn .n{font-weight:400;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.tile .td{font-size:.74rem;color:var(--muted);line-height:1.35}
+.chips.after-tiles{margin-top:6px}
+.date-row{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 4px 40px;align-items:center}
+.date-row input{min-height:44px;padding:8px 14px;border:1px solid #D8C8B8;border-radius:12px;background:var(--card);font:inherit;font-size:.95rem;color:var(--ink)}
+.results{margin:4px 0 0 40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;animation:rise .35s ease both}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card-img{display:block;border:0;padding:0;background:var(--blush);cursor:zoom-in;width:100%}
+.card-img img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}
+.card-b{padding:10px 10px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.code{font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.tags{font-size:.74rem;color:var(--muted);line-height:1.35}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;margin-top:auto;padding:8px 10px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-deep);text-decoration:none;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;background:#FFFDF9;text-align:center}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.btn svg{flex:none}
+.note{margin:14px 0 0 40px;font-size:.78rem;color:var(--muted)}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:15;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--ivory) 70%,rgba(252,250,247,0))}
+.dock a{max-width:620px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:10px;min-height:50px;border-radius:999px;background:var(--ink);color:var(--ivory);text-decoration:none;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;box-shadow:0 8px 24px rgba(46,38,34,.18)}
+.dock a:hover{background:var(--espresso)}
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(20,16,14,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(56px + env(safe-area-inset-top,0px)) 12px calc(110px + env(safe-area-inset-bottom,0px))}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.lb .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;gap:10px;color:#F3E6D3}
+.lb .cap .code{color:#F3E6D3}
+.lb .cap .btn{background:transparent;color:#F3E6D3;border-color:rgba(194,161,115,.9);padding:10px 24px;min-width:240px}
+.lb .cap .btn:hover{background:rgba(194,161,115,.2)}
+.lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#F3E6D3;width:46px;height:46px;border-radius:50%;cursor:pointer;display:grid;place-items:center;font-size:1.3rem;line-height:1}
+.lb .x{top:calc(10px + env(safe-area-inset-top,0px));right:12px}
+.lb .pv{left:10px;top:50%;transform:translateY(-50%)}
+.lb .nx{right:10px;top:50%;transform:translateY(-50%)}
+.lb .count{position:absolute;top:calc(22px + env(safe-area-inset-top,0px));left:18px;font-size:.72rem;letter-spacing:.14em;color:#CDBBA4}
+.btn.pick{cursor:pointer;width:100%}
+.btn.pick.on{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+.final-wrap{display:flex;flex-direction:column;gap:12px}
+.final{margin:0 0 0 40px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);display:flex;flex-direction:column;gap:12px;animation:rise .35s ease both}
+.final.flash{animation:flash .9s ease}
+.picked{display:flex;flex-wrap:wrap;gap:10px}
+.pk{position:relative;width:88px;display:flex;flex-direction:column;gap:4px;font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+.pk img{width:88px;height:117px;object-fit:cover;border-radius:10px;background:var(--blush)}
+.pk .rm{position:absolute;top:-8px;right:-8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:var(--card);cursor:pointer;display:grid;place-items:center;font-size:.8rem;line-height:1}
+.facts{margin:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:.88rem}
+.facts div{display:flex;gap:8px}.facts dt{color:var(--muted)}.facts dd{margin:0;font-weight:400}
+.wa-big{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:999px;background:#1F7A4D;color:#fff;text-decoration:none;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:10px 16px;text-align:center}
+.wa-big:hover{background:#18643F}
+.wa-big:focus-visible{outline:2px solid var(--gold-deep);outline-offset:3px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}
+.fx{margin:0;font-size:.78rem;color:var(--muted)}
+.lb .cap .btn.on{background:#F3E6D3;color:var(--ink)}
+@keyframes flash{0%{box-shadow:0 0 0 0 rgba(194,161,115,.6)}100%{box-shadow:0 0 0 14px rgba(194,161,115,0)}}
+@media (max-width:380px){.final{margin-left:0}}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.msg,.chips,.results,.tiles{animation:none}.typing i{animation:none;opacity:.6}}
+@media (min-width:640px){.results,.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:380px){.chips,.results,.tiles,.date-row,.note{margin-left:0}.av{width:26px;height:26px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a class="brand" href="https://celra.co.id/rental/"><b>CELRA</b><small>Gown Finder · CELRA.id</small></a>
+  <a class="top-link" href="https://celra.co.id/rental/#rental-catalogue">Katalog lengkap</a>
+</div></header>
+<main>
+  <section class="intro">
+    <h1>Temukan gaun <em>yang pas.</em></h1>
+    <p>Jawab tiga pertanyaan singkat, lalu tanyakan gaun pilihan Anda langsung lewat WhatsApp.</p>
+  </section>
+  <div class="log" id="log" role="log" aria-live="polite"></div>
+</main>
+<div class="dock"><a id="stylist" href="#" target="_blank" rel="noopener">
+  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.3-.4.8-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg>
+  <span>Tanya stylist kami</span></a></div>
+
+<script>
+const WA='6281222996988';
+const IMG='https://celra.co.id/wp-content/uploads/2026/09/celra-id-';
+const G=[["Black 01","black","black-01","S"],["Black 02","black","black-02","S"],["Black 03","black","black-03","CT"],["Black 04","black","black-04","MT"],["Black 05","black","black-05","C"],["Black 06","black","black-06","C"],["Black 07","black","black-07","C"],["Black 08","black","black-08","C"],["Black 09","black","black-09","M"],["Black 10","black","black-10","MT"],["Black 11","black","black-11","COT"],["Black 12","black","black-12","MO"],["Black 13","black","black-13","C"],["Black 14","black","black-14","S"],["Black 15","black","black-15","C"],["Black 16","black","black-16","MT"],["Black 17","black","black-17","SO"],["Grey 01","grey","grey-01","MT"],["Grey 02","grey","grey-02","MOT"],["Grey 03","grey","grey-03","MOT"],["Grey 04","grey","grey-04","MT"],["Grey 05","grey","grey-05","MT"],["Grey 06","grey","grey-06","B"],["Grey 07","grey","grey-07","M"],["Grey 08","grey","grey-08","C"],["Grey 09","grey","grey-09","MT"],["Grey 10","grey","grey-10","M"],["Grey 11","grey","grey-11","MOT"],["Navy 04","navy","navy-04","C"],["Navy 02","navy","navy-02","C"],["Navy 28","navy","navy-28","C"],["Navy 12","navy","navy-12","MT"],["Navy 31","navy","navy-31","C"],["Navy 09","navy","navy-09","MT"],["Navy 08","navy","navy-08","C"],["Navy 10","navy","navy-10","M"],["Navy 36","navy","navy-36","B"],["Navy 30","navy","navy-30","B"],["Navy 25","navy","navy-25","BOT"],["Navy 03","navy","navy-03","C"],["Navy 01","navy","navy-01","M"],["Navy 15","navy","navy-15","C"],["Navy 06","navy","navy-06","MO"],["Navy 05","navy","navy-05","MOT"],["Navy 23","navy","navy-23","BO"],["Navy 26","navy","navy-26","BO"],["Navy 13","navy","navy-13","MT"],["Navy 29","navy","navy-29","C"],["Navy 19","navy","navy-19","C"],["Navy 27","navy","navy-27","C"],["Navy 34","navy","navy-34","BT"],["Navy 16","navy","navy-16","BT"],["Navy 21","navy","navy-21","MO"],["Navy 33","navy","navy-33","MT"],["Navy 18","navy","navy-18","MO"],["Navy 32","navy","navy-32","MOT"],["Navy 24","navy","navy-24","MO"],["Navy 35","navy","navy-35","MT"],["Navy 14","navy","navy-14","CO"],["Navy 11","navy","navy-11","M"],["Blue 01","blue","navy-20","CO"],["Blue 02","blue","blue-02","CO"],["Blue 03","blue","blue-03","BT"],["Blue 04","blue","blue-04","C"],["Blue 05","blue","blue-05","S"],["Blue 06","blue","blue-06","M"],["Blue 07","blue","blue-07","B"],["Blue 08","blue","blue-08","C"],["Blue 09","blue","blue-09","B"],["Blue 10","blue","blue-10","C"],["Blue 11","blue","blue-11","CO"],["Green 01","green","green-01","BT"],["Green 02","green","green-02","C"],["Green 03","green","green-03","MT"],["Green 04","green","green-04","C"],["Green 05","green","green-05","MO"],["Green 06","green","green-06","C"],["Lilac 01","lilac","lilac-01","CO"],["Lilac 02","lilac","lilac-02","C"],["Lilac 03","lilac","lilac-03","MT"],["Lilac 04","lilac","lilac-04","MT"],["Lilac 05","lilac","lilac-05","MT"],["Lilac 06","lilac","lilac-06","C"],["Lilac 07","lilac","lilac-07","MOT"],["Lilac 08","lilac","lilac-08","C"],["Lilac 09","lilac","lilac-09","BOT"],["Lilac 10","lilac","lilac-10","MO"],["Lilac 11","lilac","lilac-11","C"],["Purple 01","purple","purple-01","MOT"],["Purple 02","purple","purple-02","MT"],["Pink 01","pink","pink-01","MO"],["Pink 02","pink","pink-02","SO"],["Pink 03","pink","pink-03","BO"],["Pink 04","pink","pink-04","M"],["Pink 05","pink","pink-05","MT"],["Pink 06","pink","pink-06","MT"],["Pink 07","pink","pink-07","C"],["Pink 08","pink","pink-08","MT"],["Pink 09","pink","pink-09","CO"],["Pink 10","pink","pink-10","CO"],["Pink 11","pink","pink-11","C"],["Pink 12","pink","pink-12","MT"],["Pink 13","pink","pink-13","C"],["Pink 14","pink","pink-14","C"],["Pink 15","pink","pink-15","B"],["Pink 16","pink","pink-16","C"],["Pink 17","pink","pink-17","C"],["Pink 18","pink","pink-18","CO"],["Pink 19","pink","pink-19","CO"],["Pink 20","pink","pink-20","C"],["Pink 21","pink","pink-21","BO"],["Pink 22","pink","pink-22","C"],["Red 01","red","red-01","M"],["Red 02","red","red-02","C"],["Red 03","red","red-03","C"],["Red 04","red","red-04","C"],["Red 05","red","red-05","M"],["Red 06","red","red-06","BO"],["Red 07","red","red-07","MOT"],["Red 08","red","red-08","CT"],["Red 09","red","red-09","B"],["Red 10","red","red-10","B"],["Red 11","red","red-11","C"],["Red 12","red","red-12","M"],["Red 13","red","red-13","MT"],["Red 14","red","red-14","S"],["Gold 01","gold","gold-01","BT"],["Gold 02","gold","gold-02","MT"],["Gold 03","gold","gold-03","CT"],["Gold 04","gold","gold-04","CO"],["Gold 05","gold","gold-05","C"],["Gold 06","gold","gold-06","CO"],["Gold 07","gold","gold-07","MT"],["Gold 08","gold","gold-08","MO"],["Gold 09","gold","gold-09","BOT"],["Gold 10","gold","gold-10","MO"],["Gold 11","gold","gold-11","C"],["Gold 12","gold","gold-12","M"],["Gold 13","gold","gold-13","C"],["Gold 14","gold","gold-14","MT"],["Gold 15","gold","gold-15","BOT"],["Gold 16","gold","gold-16","M"],["Gold 17","gold","gold-17","MT"],["Gold 18","gold","gold-18","MO"],["Gold 19","gold","gold-19","CO"],["Gold 20","gold","gold-20","MT"],["Gold 21","gold","gold-21","C"],["Gold 22","gold","gold-22","M"],["Gold 23","gold","gold-23","CO"],["Gold 24","gold","gold-24","CO"],["Gold 25","gold","gold-25","BO"],["Gold 26","gold","gold-26","MO"],["Gold 27","gold","gold-27","MT"],["Bronze 01","bronze","bronze-01","CT"],["Bronze 02","bronze","bronze-02","MOT"],["Bronze 03","bronze","bronze-03","C"],["Bronze 04","bronze","bronze-04","CO"],["Bronze 05","bronze","bronze-05","MT"]];
+const COLOURS=[
+ ['black','Hitam','#1C1A19'],['grey','Abu-abu','#8C9096'],['navy','Navy','#1F2A52'],['blue','Biru muda','#93B6DC'],
+ ['green','Hijau','#A5CDB9'],['lilac','Lilac','#C7BBDD'],['purple','Ungu','#7D6E9E'],['pink','Pink','#E4B8C5'],
+ ['red','Merah','#9C1C34'],['gold','Gold','#CDAE72'],['bronze','Bronze','#B38F68']];
+const STYLES=[['M','Mermaid'],['C','Lurus dengan belahan'],['B','Ball gown / A-line'],['S','Pendek / cocktail'],['T','Dengan ekor atau cape'],['O','Off-shoulder / berlengan']];
+const STYLEHINT={M:'Pas di badan, mekar di bagian bawah',C:'Siluet lurus, sering dengan belahan',B:'Rok lebar yang mengembang',S:'Sebatas lutut atau midi',T:'Ekor panjang atau cape di belakang',O:'Bahu terbuka atau berlengan'};
+const STYLEREP={M:'Red 05',C:'Pink 11',B:'Red 10',S:'Black 17',T:'Red 08',O:'Pink 03'};
+const TAGNAME={M:'Mermaid',C:'Lurus',B:'Ball gown',S:'Pendek',T:'Ekor/cape',O:'Off-shoulder/lengan'};
+const OCC=[['kondangan','Kondangan / resepsi','','kondangan/resepsi'],['gala','Gala / prom','MT','acara gala/prom'],['lamaran','Lamaran / engagement','SBO','lamaran/engagement'],['prewed','Prewedding / photoshoot','TB','prewedding/photoshoot'],['lain','Acara lain','','sebuah acara']];
+const WAICON='<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>';
+const MAXSEL=5;
+const S={occ:null,col:null,sty:null,date:null,dateAsked:false,sel:[],shown:0,list:[]};
+const log=document.getElementById('log');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const byCode=c=>G.find(g=>g[0]===c);
+const colName=k=>k==='any'?'semua warna':(COLOURS.find(c=>c[0]===k)||[,'',''])[1];
+const styName=k=>k==='any'?'semua model':(STYLES.find(s=>s[0]===k)||[,''])[1];
+const occName=k=>(OCC.find(o=>o[0]===k)||[,'','',''])[3];
+const fmtDate=d=>{try{return new Date(d+'T00:00:00').toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'})}catch(e){return d}};
+const waLink=t=>'https://wa.me/'+WA+'?text='+encodeURIComponent(t);
+const joinID=a=>a.length<2?a.join(''):a.slice(0,-1).join(', ')+' dan '+a[a.length-1];
+const sleep=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
+const topH=()=>document.querySelector('.top').offsetHeight+12;
+function scrollTo_(node){requestAnimationFrame(()=>{const y=node.getBoundingClientRect().top+scrollY-topH();window.scrollTo({top:y,behavior:reduce?'auto':'smooth'})})}
+function scrollEnd(){requestAnimationFrame(()=>window.scrollTo({top:document.body.scrollHeight,behavior:reduce?'auto':'smooth'}))}
+function el(tag,cls,html){const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+async function bot(html,noScroll){const t=el('div','msg bot typing','<span class="av" aria-hidden="true">C</span><span class="bub"><i></i><i></i><i></i></span>');log.appendChild(t);if(!noScroll)scrollEnd();await sleep(550);t.remove();const m=el('div','msg bot','<span class="av" aria-hidden="true">C</span><div class="bub">'+html+'</div>');log.appendChild(m);if(!noScroll)scrollEnd();return m}
+function me(text,step){const m=el('div','msg me');m.dataset.step=step;const b=el('button','edit','Ubah');b.type='button';b.addEventListener('click',()=>restartFrom(step));m.appendChild(b);m.appendChild(el('div','bub',esc(text)));log.appendChild(m);scrollEnd();return m}
+function chips(items,onPick,noScroll){const w=el('div','chips');items.forEach(it=>{const b=el('button','chip'+(it.cls?' '+it.cls:''));b.type='button';b.innerHTML=(it.dot?'<span class="dot" style="background:'+it.dot+'"></span>':'')+'<span>'+esc(it.label)+'</span>'+(it.n!=null?'<span class="n">'+it.n+'</span>':'');b.addEventListener('click',()=>{if(!it.keep)w.remove();onPick(it)});w.appendChild(b)});log.appendChild(w);if(!noScroll){scrollEnd();const f=w.querySelector('button');if(f&&!reduce)f.focus({preventScroll:true})}return w}
+async function restartFrom(step){
+  if(step==='pick'){const r=log.querySelector('.results');if(r)scrollTo_(r);return}
+  const nodes=[...log.children];const i=nodes.findIndex(n=>n.dataset.q===step);if(i>=0)nodes.slice(i).forEach(n=>n.remove());
+  if(step==='occ'){S.occ=S.col=S.sty=null;askOcc()}
+  else if(step==='col'){S.col=S.sty=null;askCol()}
+  else if(step==='sty'){S.sty=null;askSty()}
+  else if(step==='date'){S.date=null;askDate()}
+  updateStylist();
+}
+async function askOcc(){const m=await bot('Untuk acara apa gaunnya?');m.dataset.q='occ';chips(OCC.map(o=>({label:o[1],k:o[0]})),it=>{S.occ=it.k;me(it.label,'occ');askCol()})}
+async function askCol(){const m=await bot('Warna apa yang Anda suka?');m.dataset.q='col';
+  const items=COLOURS.map(c=>({label:c[1],k:c[0],dot:c[2],n:G.filter(g=>g[1]===c[0]).length}));items.push({label:'Semua warna',k:'any',cls:'soft',n:G.length});
+  chips(items,it=>{S.col=it.k;me(it.label,'col');askSty()})}
+async function askSty(){const pool=G.filter(g=>S.col==='any'||g[1]===S.col);
+  const m=await bot('Model seperti apa?'+(S.col!=='any'?' <span style="color:var(--muted)">Contoh foto dari gaun '+esc(colName(S.col).toLowerCase())+' kami.</span>':' <span style="color:var(--muted)">Pilih yang paling mirip dengan bayangan Anda.</span>'),true);m.dataset.q='sty';
+  const pickRep=k=>{if(S.col==='any')return byCode(STYLEREP[k]);const w=pool.filter(g=>g[3].includes(k));return w.find(g=>g[3][0]===k&&g[3].length===1)||w.find(g=>g[3][0]===k)||w[0]};
+  const items=STYLES.map(s=>({label:s[1],k:s[0],n:pool.filter(g=>g[3].includes(s[0])).length})).filter(x=>x.n>0);
+  const grid=el('div','tiles');let done=false;
+  const pick=(k,label)=>{if(done)return;done=true;grid.remove();after.remove();S.sty=k;me(label,'sty');showResults()};
+  items.forEach(it=>{const r=pickRep(it.k);const b=el('button','tile');b.type='button';
+    b.innerHTML='<img loading="lazy" decoding="async" alt="" src="'+IMG+r[2]+'.jpg?w=300">'+'<span class="tl"><span class="tn"><span>'+esc(it.label)+'</span><span class="n">'+it.n+'</span></span><span class="td">'+esc(STYLEHINT[it.k])+'</span></span>';
+    b.setAttribute('aria-label',it.label+', '+it.n+' gaun. '+STYLEHINT[it.k]);
+    b.addEventListener('click',()=>pick(it.k,it.label));grid.appendChild(b)});
+  log.appendChild(grid);
+  const after=el('div','chips after-tiles');const all=el('button','chip soft','<span>Semua model</span><span class="n">'+pool.length+'</span>');all.type='button';all.addEventListener('click',()=>pick('any','Semua model'));after.appendChild(all);log.appendChild(after);
+  scrollTo_(m);
+}
+function score(g){const pref=(OCC.find(o=>o[0]===S.occ)||[,,''])[2];let s=0;for(const t of pref)if(g[3].includes(t))s++;return s}
+async function showResults(){updateStylist();
+  let list=G.map((g,i)=>({g,i})).filter(x=>(S.col==='any'||x.g[1]===S.col)&&(S.sty==='any'||x.g[3].includes(S.sty)));let intro;
+  if(list.length){list.sort((a,b)=>score(b.g)-score(a.g)||a.i-b.i);
+    const desc=[S.col!=='any'?colName(S.col).toLowerCase():'',S.sty!=='any'?'model '+styName(S.sty):''].filter(Boolean).join(', ');
+    intro='Ada <b>'+list.length+' gaun</b>'+(desc?' '+esc(desc):'')+' yang cocok. Tap foto untuk melihat lebih besar, lalu tekan <b>Pilih gaun ini</b> pada gaun yang Anda suka.';}
+  else{list=G.map((g,i)=>({g,i})).filter(x=>x.g[1]===S.col);list.sort((a,b)=>score(b.g)-score(a.g)||a.i-b.i);
+    intro='Belum ada model '+esc(styName(S.sty).toLowerCase())+' dalam warna '+esc(colName(S.col).toLowerCase())+'. Ini gaun '+esc(colName(S.col).toLowerCase())+' lainnya yang bisa jadi pilihan.';}
+  S.list=list.map(x=>x.g);S.shown=0;
+  const m=await bot(intro,true);m.dataset.q='res';
+  renderMore(m);
+}
+function isSel(g){return S.sel.includes(g[0])}
+function selBtnHTML(g){return isSel(g)?'&#10003; Dipilih':'Pilih gaun ini'}
+function refreshSelButtons(){document.querySelectorAll('[data-pick]').forEach(b=>{const g=byCode(b.dataset.pick);b.innerHTML=selBtnHTML(g);b.classList.toggle('on',isSel(g));b.setAttribute('aria-pressed',isSel(g))})}
+function card(g,idx){const c=el('article','card');const alt='Gaun sewa CELRA.id '+g[0];
+  c.innerHTML='<button type="button" class="card-img" aria-label="Perbesar foto '+esc(g[0])+'"><img loading="lazy" decoding="async" src="'+IMG+g[2]+'.jpg?w=450" srcset="'+IMG+g[2]+'.jpg?w=300 300w, '+IMG+g[2]+'.jpg?w=450 450w, '+IMG+g[2]+'.jpg?w=600 600w" sizes="(min-width:640px) 190px, 44vw" alt="'+esc(alt)+'" width="450" height="600"></button><div class="card-b"><span class="code">'+esc(g[0])+'</span><span class="tags">'+g[3].split('').map(t=>TAGNAME[t]).join(' · ')+'</span><button type="button" class="btn pick'+(isSel(g)?' on':'')+'" data-pick="'+esc(g[0])+'" aria-pressed="'+isSel(g)+'">'+selBtnHTML(g)+'</button></div>';
+  c.querySelector('.card-img').addEventListener('click',()=>openLB(idx));
+  c.querySelector('[data-pick]').addEventListener('click',()=>toggleGown(g));return c}
+function renderMore(anchor){const grid=el('div','results');grid.dataset.q='res';const next=S.list.slice(S.shown,S.shown+6);next.forEach((g,k)=>grid.appendChild(card(g,S.shown+k)));S.shown+=next.length;
+  const oldMore=log.querySelector('.chips.more');const where=oldMore||null;
+  if(where){log.insertBefore(grid,where);where.remove()}else{log.appendChild(grid)}
+  const rest=S.list.length-S.shown;const items=[];if(rest>0)items.push({label:'Tampilkan '+Math.min(6,rest)+' lagi',k:'more',cls:'dark'});
+  items.push({label:'Ubah warna',k:'col'},{label:'Ubah model',k:'sty'},{label:'Mulai lagi',k:'occ',cls:'soft'});
+  const w=chips(items,it=>{if(it.k==='more'){renderMore()}else{restartFrom(it.k)}},true);w.classList.add('more');w.dataset.q='res';
+  if(grid.nextSibling!==w)grid.after(w);
+  const fin=log.querySelector('.final-wrap');if(fin)log.appendChild(fin);
+  scrollTo_(anchor||grid);
+}
+function toggleGown(g){
+  if(isSel(g)){S.sel=S.sel.filter(c=>c!==g[0]);refreshSelButtons();renderFinal();updateStylist();return}
+  if(S.sel.length>=MAXSEL){alertMsg('Maksimal '+MAXSEL+' gaun sekali tanya. Hapus salah satu dulu, ya.');return}
+  S.sel.push(g[0]);refreshSelButtons();updateStylist();
+  if(!S.dateAsked){S.dateAsked=true;me('Saya pilih '+g[0],'pick');askDate()}
+  else{renderFinal(true)}
+}
+function alertMsg(t){bot(esc(t))}
+async function askDate(){const m=await bot('Pilihan yang cantik. Kapan tanggal acaranya? <span style="color:var(--muted)">Dengan tanggal, tim kami bisa langsung cek ketersediaan.</span>');m.dataset.q='date';
+  const row=el('div','date-row');row.dataset.q='date';const today=new Date();const iso=new Date(today.getTime()-today.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+  row.innerHTML='<label for="evdate" style="position:absolute;left:-9999px">Tanggal acara</label><input type="date" id="evdate" min="'+iso+'"><button type="button" class="chip dark" id="dateGo">Lanjut</button><button type="button" class="chip soft" id="dateSkip">Belum pasti</button>';
+  log.appendChild(row);scrollEnd();
+  row.querySelector('#dateGo').addEventListener('click',()=>{const v=row.querySelector('#evdate').value;if(!v){row.querySelector('#evdate').focus();return}S.date=v;row.remove();me(fmtDate(v),'date');showFinal()});
+  row.querySelector('#dateSkip').addEventListener('click',()=>{S.date=null;row.remove();me('Belum pasti','date');showFinal()});
+}
+function finalMsg(){return 'Halo CELRA.id, saya tertarik dengan gaun '+joinID(S.sel)+' untuk '+occName(S.occ)+(S.date?', tanggal '+fmtDate(S.date):'')+'. Apakah tersedia? (dari Gown Finder)'}
+async function showFinal(){updateStylist();const old=log.querySelector('.final-wrap');if(old)old.remove();
+  const wrap=el('div','final-wrap');wrap.dataset.q='date';log.appendChild(wrap);
+  const t=el('div','msg bot typing','<span class="av" aria-hidden="true">C</span><span class="bub"><i></i><i></i><i></i></span>');wrap.appendChild(t);scrollEnd();await sleep(550);t.remove();
+  wrap.appendChild(el('div','msg bot','<span class="av" aria-hidden="true">C</span><div class="bub">Siap! Ini ringkasan pilihan Anda. Tekan tombol di bawah untuk langsung bertanya ke tim kami di WhatsApp.</div>'));
+  wrap.appendChild(el('div','final'));renderFinal();scrollTo_(wrap);
+}
+function renderFinal(flash){const wrap=log.querySelector('.final-wrap');if(!wrap)return;const f=wrap.querySelector('.final');
+  if(!S.sel.length){f.innerHTML='<p class="fx">Belum ada gaun dipilih. Tekan <b>Pilih gaun ini</b> pada gaun di atas, lalu tombol WhatsApp akan muncul di sini.</p>';return}
+  f.innerHTML='<div class="picked">'+S.sel.map(c=>{const g=byCode(c);return '<div class="pk"><img alt="" src="'+IMG+g[2]+'.jpg?w=200"><span>'+esc(c)+'</span><button type="button" class="rm" data-rm="'+esc(c)+'" aria-label="Hapus '+esc(c)+'">&#10005;</button></div>'}).join('')+'</div>'
+   +'<dl class="facts"><div><dt>Acara</dt><dd>'+esc(OCC.find(o=>o[0]===S.occ)[1])+'</dd></div><div><dt>Tanggal</dt><dd>'+(S.date?esc(fmtDate(S.date)):'Belum pasti')+'</dd></div></dl>'
+   +'<a class="wa-big" target="_blank" rel="noopener" href="'+waLink(finalMsg())+'">'+WAICON+'<span>Tanya ketersediaan via WhatsApp</span></a>'
+   +'<div class="fchips"><button type="button" class="chip dark" data-act="redo">Pilih ulang gaun</button><button type="button" class="chip" data-act="add">Tambah gaun lain</button><button type="button" class="chip" data-act="date">Ubah tanggal</button><button type="button" class="chip soft" data-act="restart">Mulai lagi</button></div>'
+   +'<p class="fx">Ketersediaan, ukuran dan harga dikonfirmasi langsung oleh tim kami lewat WhatsApp.</p>';
+  f.querySelectorAll('[data-rm]').forEach(b=>b.addEventListener('click',()=>toggleGown(byCode(b.dataset.rm))));
+  f.querySelector('[data-act="redo"]').addEventListener('click',()=>{S.sel=[];refreshSelButtons();updateStylist();renderFinal();const r=log.querySelector('.results');if(r)scrollTo_(r)});
+  f.querySelector('[data-act="add"]').addEventListener('click',()=>{const r=log.querySelector('.results');if(r)scrollTo_(r)});
+  f.querySelector('[data-act="date"]').addEventListener('click',()=>{wrap.remove();const nodes=[...log.children];const i=nodes.findIndex(n=>n.dataset.q==='date');if(i>=0)nodes.slice(i).forEach(n=>n.remove());S.date=null;askDate()});
+  f.querySelector('[data-act="restart"]').addEventListener('click',()=>{S.sel=[];S.date=null;S.dateAsked=false;restartFrom('occ')});
+  if(flash){f.classList.remove('flash');void f.offsetWidth;f.classList.add('flash');}
+}
+function updateStylist(){const a=document.getElementById('stylist');const parts=['Halo CELRA.id, saya sedang mencari gaun sewa'];if(S.occ)parts.push('untuk '+occName(S.occ));if(S.date)parts.push('tanggal '+fmtDate(S.date));let t=parts.join(' ')+'.';if(S.sel.length)t+=' Gaun yang saya suka: '+joinID(S.sel)+'.';else{if(S.col)t+=' Warna: '+colName(S.col)+'.';if(S.sty)t+=' Model: '+styName(S.sty)+'.';}t+=' Bisa dibantu rekomendasinya?';a.href=waLink(t)}
+// lightbox
+let lbIdx=0,lb=null;
+function openLB(i){lbIdx=i;if(!lb){lb=el('div','lb');lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','Foto gaun');
+  lb.innerHTML='<span class="count"></span><img alt=""><button type="button" class="x" aria-label="Tutup">&#10005;</button><button type="button" class="pv" aria-label="Sebelumnya">&#8249;</button><button type="button" class="nx" aria-label="Berikutnya">&#8250;</button><div class="cap"><span class="code"></span><button type="button" class="btn lbpick">Pilih gaun ini</button></div>';
+  lb.querySelector('.x').onclick=closeLB;lb.querySelector('.pv').onclick=()=>step(-1);lb.querySelector('.nx').onclick=()=>step(1);
+  lb.querySelector('.lbpick').onclick=()=>{const g=S.list[lbIdx];const wasSel=isSel(g);toggleGown(g);paintLB();if(!wasSel)closeLB()};
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});
+  let sx=null;lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});lb.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1);sx=null});
+  document.body.appendChild(lb)}
+  lb.hidden=false;document.body.style.overflow='hidden';paintLB();lb.querySelector('.x').focus()}
+function paintLB(){const g=S.list[lbIdx];const img=lb.querySelector('img');img.src=IMG+g[2]+'.jpg?w=1200';img.alt='Gaun sewa CELRA.id '+g[0];lb.querySelector('.cap .code').textContent=g[0];const b=lb.querySelector('.lbpick');b.innerHTML=selBtnHTML(g);b.classList.toggle('on',isSel(g));lb.querySelector('.count').textContent=(lbIdx+1)+' / '+S.list.length;
+  const nx=S.list[lbIdx+1];if(nx){const p=new Image();p.src=IMG+nx[2]+'.jpg?w=1200'}}
+function step(d){lbIdx=(lbIdx+d+S.list.length)%S.list.length;paintLB()}
+function closeLB(){lb.hidden=true;document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(!lb||lb.hidden)return;if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+updateStylist();
+(async()=>{await bot('Halo! Saya asisten gaun <b>CELRA.id</b>. Saya bantu carikan gaun sewa yang pas untuk acara Anda.');askOcc()})();
+</script>
+</body>
+</html>
