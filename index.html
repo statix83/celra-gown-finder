@@ -154,6 +154,7 @@ const WAICON='<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"
 const MAXSEL=5;
 const S={occ:null,col:null,sty:null,date:null,dateAsked:false,sel:[],shown:0,list:[]};
 const log=document.getElementById('log');
+document.addEventListener('error',function(e){var t=e.target;if(!t||t.tagName!=='IMG')return;var n=+(t.dataset.rt||0);if(n>=2)return;t.dataset.rt=n+1;t.removeAttribute('srcset');var b=t.src.split('&rt=')[0];setTimeout(function(){t.src=b+'&rt='+Date.now()},400+500*n)},true);
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const byCode=c=>G.find(g=>g[0]===c);
