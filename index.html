@@ -242,7 +242,7 @@ async function askDate(){const m=await bot('Pilihan yang cantik. Kapan tanggal a
   row.querySelector('#dateGo').addEventListener('click',()=>{const v=row.querySelector('#evdate').value;if(!v){row.querySelector('#evdate').focus();return}S.date=v;row.remove();me(fmtDate(v),'date');showFinal()});
   row.querySelector('#dateSkip').addEventListener('click',()=>{S.date=null;row.remove();me('Belum pasti','date');showFinal()});
 }
-function finalMsg(){return 'Halo CELRA.id, saya tertarik dengan gaun '+joinID(S.sel)+' untuk '+occName(S.occ)+(S.date?', tanggal '+fmtDate(S.date):'')+'. Apakah tersedia? (dari Gown Finder)'}
+function finalMsg(){const ph=S.sel.map(c=>c+': '+IMG+byCode(c)[2]+'.jpg?w=800').join('\n');return 'Halo CELRA.id, saya tertarik dengan gaun '+joinID(S.sel)+' untuk '+occName(S.occ)+(S.date?', tanggal '+fmtDate(S.date):'')+'. Apakah tersedia?'+'\n\nFoto gaunnya:\n'+ph+'\n\n(dari Gown Finder)'}
 async function showFinal(){updateStylist();const old=log.querySelector('.final-wrap');if(old)old.remove();
   const wrap=el('div','final-wrap');wrap.dataset.q='date';log.appendChild(wrap);
   const t=el('div','msg bot typing','<span class="av" aria-hidden="true">C</span><span class="bub"><i></i><i></i><i></i></span>');wrap.appendChild(t);scrollEnd();await sleep(550);t.remove();
